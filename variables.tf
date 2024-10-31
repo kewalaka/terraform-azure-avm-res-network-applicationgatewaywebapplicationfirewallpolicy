@@ -9,8 +9,8 @@ variable "name" {
   description = "The name of the this resource."
 
   validation {
-    condition     = can(regex("^[a-zA-Z][a-zA-Z0-9]{0,127}$", var.name))
-    error_message = "The name must be between 1 and 128 characters long, contain only alphanumerics, and must start with a letter."
+    condition     = can(regex("^[a-zA-Z0-9][a-zA-Z0-9._-]*[a-zA-Z0-9_]$", var.name))
+    error_message = "The name must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens."
   }
 }
 
